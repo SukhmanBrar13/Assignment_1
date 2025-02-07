@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Converter</title>
+  <!-- Tailwind CSS via CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-600 p-4 shadow">
+    <div class="container mx-auto">
+      <h1 class="text-white text-2xl font-bold">Converter</h1>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container mx-auto mt-8 p-4">
+    <!-- Tab navigation -->
+    <nav class="flex space-x-4 border-b border-gray-300 pb-2 mb-6">
+      <!-- The data-tab-target attributes are for simple JS-driven tab switching -->
+      <button
+        class="py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none"
+        data-tab-target="#weight-tab"
+      >
+        Weight
+      </button>
+      <button
+        class="py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none"
+        data-tab-target="#distance-tab"
+      >
+        Distance
+      </button>
+      <button
+        class="py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-blue-600 focus:outline-none"
+        data-tab-target="#temperature-tab"
+      >
+        Temperature
+      </button>
+    </nav>
+
+    <!-- Weight Tab Content -->
+    <!-- We initially hide the sections with class="hidden". JS will show/hide them as needed. -->
+    <section id="weight-tab" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">Weight Converter</h2>
+      <!-- Convert Pounds to Kilograms -->
+      <div class="mb-4">
+        <label for="lbInput" class="block mb-1 text-gray-700">Enter value in pounds (lb):</label>
+        <input
+          type="number"
+          id="lbInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 150"
+        />
+        <button
+          id="btnLbToKg"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to kg
+        </button>
+      </div>
+
+      <!-- Convert Kilograms to Pounds -->
+      <div class="mb-4">
+        <label for="kgInput" class="block mb-1 text-gray-700">Enter value in kilograms (kg):</label>
+        <input
+          type="number"
+          id="kgInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 68"
+        />
+        <button
+          id="btnKgToLb"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to lb
+        </button>
+      </div>
+
+      <p id="weightResult" class="text-green-600 font-semibold"></p>
+    </section>
+
+    <!-- Distance Tab Content -->
+    <section id="distance-tab" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">Distance Converter</h2>
+      <!-- Convert Miles to Kilometers -->
+      <div class="mb-4">
+        <label for="milesInput" class="block mb-1 text-gray-700">Enter value in miles:</label>
+        <input
+          type="number"
+          id="milesInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 10"
+        />
+        <button
+          id="btnMilesToKm"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to km
+        </button>
+      </div>
+
+      <!-- Convert Kilometers to Miles -->
+      <div class="mb-4">
+        <label for="kmInput" class="block mb-1 text-gray-700">Enter value in kilometers (km):</label>
+        <input
+          type="number"
+          id="kmInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 16"
+        />
+        <button
+          id="btnKmToMiles"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to miles
+        </button>
+      </div>
+
+      <p id="distanceResult" class="text-green-600 font-semibold"></p>
+    </section>
+
+    <!-- Temperature Tab Content -->
+    <section id="temperature-tab" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">Temperature Converter</h2>
+      <!-- Convert Celsius to Fahrenheit -->
+      <div class="mb-4">
+        <label for="celsiusInput" class="block mb-1 text-gray-700">Enter value in °C:</label>
+        <input
+          type="number"
+          id="celsiusInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 25"
+        />
+        <button
+          id="btnCtoF"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to °F
+        </button>
+      </div>
+
+      <!-- Convert Fahrenheit to Celsius -->
+      <div class="mb-4">
+        <label for="fahrenheitInput" class="block mb-1 text-gray-700">Enter value in °F:</label>
+        <input
+          type="number"
+          id="fahrenheitInput"
+          class="border border-gray-300 p-2 w-full max-w-sm rounded"
+          placeholder="e.g. 77"
+        />
+        <button
+          id="btnFtoC"
+          class="mt-2 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Convert to °C
+        </button>
+      </div>
+
+      <p id="temperatureResult" class="text-green-600 font-semibold"></p>
+    </section>
+  </main>
+
+  <!-- Link to the separate JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
